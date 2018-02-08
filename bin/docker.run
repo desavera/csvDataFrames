@@ -1,0 +1,2 @@
+sudo docker run -it --expose 8080 --expose 9000 --dns=8.8.8.8 --dns-search=la.ad.b2w --volume `pwd`:/docked desavera/b2wdev-mvera:r37-PRICINGDEV /bin/bash
+

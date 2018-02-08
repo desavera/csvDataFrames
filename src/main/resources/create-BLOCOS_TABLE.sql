@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS datalake_tvshoptime.tvst_blocos (blc_id STRING, blc_pits STRING,blc_apresentador STRING,blc_diretor STRING,blc_dur_min BIGINT) PARTITIONED BY (dt_dia STRING) STORED AS PARQUET 

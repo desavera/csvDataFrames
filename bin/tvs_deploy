@@ -1,0 +1,13 @@
+#
+# to login to server
+
+# the deploy command
+export TARGET_FILE=tvshoptime-data-ingestion-assembly-0.4.jar
+export TARGET_LINK=tvshoptime-data-ingestion.jar
+
+scp -i ~/.ssh/id_rsa_las_vegas.pem target/scala-2.10/${TARGET_FILE} b2wlabs@lvwrk01.b2w:/data/projects/tvshoptime-data-ingestion
+
+echo 'relink to the new deployment...'
+ssh -i ~/.ssh/id_rsa_las_vegas.pem b2wlabs@lvwrk01.b2w unlink /data/projects/tvshoptime-data-ingestion/${TARGET_LINK}
+ssh -i ~/.ssh/id_rsa_las_vegas.pem b2wlabs@lvwrk01.b2w sudo ln -s  /data/projects/tvshoptime-data-ingestion/${TARGET_FILE} /data/projects/tvshoptime-data-ingestion/${TARGET_LINK}
+echo 'Done.'
